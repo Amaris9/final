@@ -41,11 +41,20 @@ function setup() {
   borderWall4.color = 0;
 
   //Creates playButton sprite
-  // playButton = new Sprite(900, 40, 100, 50, "static");
+  playButton = new Sprite(900, 40, 100, 50, "static");
 
   // Lets the player sprite overlap other sprites and allows later event functions to work
   player.overlaps(demonEventWall, demonEvent);
   player.overlaps(eyesEventWall, eyesEvent);
+}
+
+// Removes Play Button when clicked on
+function mousePressed() {
+ if (playButton.mouse.presses()){
+  playButton.remove();
+  fullscreen(true);
+  resizeCanvas()
+ }
 }
 
 function draw() {
@@ -67,10 +76,7 @@ function draw() {
   camera.y = player.y;
 }
 
-// Removes Play Button when clicked on
-// function mousePressed(playButton) {
-//   mouse.presses = remove(playButton);
-// }
+
 
 function demonEvent(player, demonEventWall) {
   // Makes it so the demonEvent Wall disapear when it overlaps with player
