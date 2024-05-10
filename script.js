@@ -11,6 +11,7 @@ function setup() {
   player = new Sprite();
   player.width = 50;
   player.height = 50;
+  player.color = 0;
 
   // Creates the sprite that controls the demon event
   demonEventWall = new Sprite(300, 100, 10, 80);
