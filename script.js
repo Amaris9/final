@@ -50,11 +50,11 @@ function setup() {
 
 // Removes Play Button when clicked on
 function mousePressed() {
- if (playButton.mouse.presses()){
-  playButton.remove();
-  fullscreen(true);
-  resizeCanvas()
- }
+  if (playButton.mouse.presses()) {
+    playButton.remove();
+    fullscreen(true);
+    resizeCanvas();
+  }
 }
 
 function draw() {
@@ -75,8 +75,6 @@ function draw() {
   camera.x = player.x;
   camera.y = player.y;
 }
-
-
 
 function demonEvent(player, demonEventWall) {
   // Makes it so the demonEvent Wall disapear when it overlaps with player
