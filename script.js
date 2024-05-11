@@ -49,12 +49,14 @@ function setup() {
   player.overlaps(eyesEventWall, eyesEvent);
 }
 
-// Removes Play Button when clicked on
 function mousePressed() {
   if (playButton.mouse.presses()) {
+    // Removes Play Button when clicked on
     playButton.remove();
+    // Makes the game go fullscreen
     fullscreen(true);
-    resizeCanvas();
+    // Resizes the canvas to the width and height of the display
+    resizeCanvas(displayWidth, displayHeight);
   }
 }
 
@@ -80,12 +82,17 @@ function draw() {
 function demonEvent(player, demonEventWall) {
   // Makes it so the demonEvent Wall disapear when it overlaps with player
   demonEventWall.remove();
+  // Creates demon sprite
   let demon = new Sprite(100, 100, 50, 50, "static");
+  // Lets demon sprite overlap player sprite
   demon.overlaps(player);
 }
 
 function eyesEvent(player, eyesEventWall) {
+  // Deletes eyeEventWall sprite when it collides with player
   eyesEventWall.remove();
+  // Creates eyes sprite
   let eyes = new Sprite(800, 600, 50, 50, "static");
+  // Lets player sprite overlap eyes sprite
   player.overlaps(eyes);
 }
