@@ -83,7 +83,12 @@ function demonEvent(player, demonEventWall) {
   // Makes it so the demonEvent Wall disapear when it overlaps with player
   demonEventWall.remove();
   // Creates demon sprite
-  let demon = new Sprite(100, 100, 50, 50, "static");
+  let demon = new Sprite();
+  demon.y = 300;
+  demon.x = 220;
+  demon.image = "assets/demon.png";
+  demon.image.scale = 2;
+
   // Lets demon sprite overlap player sprite
   demon.overlaps(player);
 }
