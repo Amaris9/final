@@ -14,7 +14,7 @@ function setup() {
   player.image.scale = 0.7;
 
   // Creates the sprite that controls the demon event
-  demonEventWall = new Sprite(300, 100, 10, 80);
+  demonEventWall = new Sprite(300, 100, 10, 100);
   demonEventWall.color = 0;
 
   // Creates sprite of eyes event
@@ -45,8 +45,6 @@ function setup() {
 
   //Creates playButton sprite
   playButton = new Sprite();
-  //playButton.x = 900;
-  //playButton.y = 40;
   playButton.collider = "static";
   playButton.image = "assets/play_button.png";
   playButton.image.scale = 0.1;
@@ -70,7 +68,7 @@ function mousePressed() {
 
 function draw() {
   // Makes background black
-  background(50);
+  background(0);
 
   // Allow player to move character left and right when the arrow keys are down
   if (kb.pressing("left")) {
