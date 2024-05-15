@@ -9,9 +9,9 @@ function setup() {
 
   // Creates player sprite
   player = new Sprite();
-  player.width = 50;
-  player.height = 50;
-  player.color = 0;
+  player.layer = 5;
+  player.image = "assets/player_front.png";
+  player.image.scale = 0.7;
 
   // Creates the sprite that controls the demon event
   demonEventWall = new Sprite(300, 100, 10, 80);
@@ -37,12 +37,19 @@ function setup() {
 
   borderWall3 = new Sprite(900, -800, 2000, 2, "static");
   borderWall3.color = 0;
+  borderWall3.layer = -1;
 
   borderWall4 = new Sprite(1900, 200, 2, 2000, "static");
   borderWall4.color = 0;
+  borderWall4.layer = -1;
 
   //Creates playButton sprite
-  playButton = new Sprite(900, 40, 100, 50, "static");
+  playButton = new Sprite();
+  //playButton.x = 900;
+  //playButton.y = 40;
+  playButton.collider = "static";
+  playButton.image = "assets/play_button.png";
+  playButton.image.scale = 0.1;
 
   // Lets the player sprite overlap other sprites and allows later event functions to work
   player.overlaps(demonEventWall, demonEvent);
@@ -50,6 +57,7 @@ function setup() {
 }
 
 function mousePressed() {
+  console.log(playButton);
   if (playButton.mouse.presses()) {
     // Removes Play Button when clicked on
     playButton.remove();
@@ -62,17 +70,31 @@ function mousePressed() {
 
 function draw() {
   // Makes background black
-  background("grey");
+  background(50);
 
   // Allow player to move character left and right when the arrow keys are down
-  if (kb.pressing("left")) player.vel.x = -5;
-  else if (kb.pressing("right")) player.vel.x = 5;
-  else player.vel.x = 0;
+  if (kb.pressing("left")) {
+    player.vel.x = -5;
+    player.image = "assets/player_side.png";
+    player.image.scale = 0.7;
+  } else if (kb.pressing("right")) {
+    player.vel.x = 5;
+    player.image = "assets/player_side2.png";
+    player.image.scale = 0.7;
+  } else {
+    player.vel.x = 0;
+    // player.image = "assets/player_front.png";
+    // player.image.scale = 0.7;
+  }
 
   // Allows player to move character up and down when the arrow keys are being pressed
-  if (kb.pressing("up")) player.vel.y = -5;
-  else if (kb.pressing("down")) player.vel.y = 5;
-  else player.vel.y = 0;
+  if (kb.pressing("up")) {
+    player.vel.y = -5;
+    player.image = "assets/player_front.png";
+  } else if (kb.pressing("down")) {
+    player.vel.y = 5;
+    player.image = "assets/player_front.png";
+  } else player.vel.y = 0;
 
   // Makes it so camera follows the player sprite
   camera.x = player.x;
@@ -98,6 +120,11 @@ function eyesEvent(player, eyesEventWall) {
   eyesEventWall.remove();
   // Creates eyes sprite
   let eyes = new Sprite(800, 600, 50, 50, "static");
+  eyes.y = 900;
+  eyes.x = 1000;
+  eyes.layer = 2;
+  eyes.image = "assets/eyes.png";
+  eyes.image.scale = 0.5;
   // Lets player sprite overlap eyes sprite
   player.overlaps(eyes);
 }
