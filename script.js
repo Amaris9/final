@@ -68,7 +68,7 @@ function mousePressed() {
 
 function draw() {
   // Makes background black
-  background(0);
+  background(50);
 
   // Allow player to move character left and right when the arrow keys are down
   if (kb.pressing("left")) {
