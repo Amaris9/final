@@ -1,3 +1,11 @@
+// I used p5 plat to create my game. I learned how to use p5 to create
+// sprites and how to control those sprites. Every sprite in the game needed
+// it's own variable, and the movement controls use conditional logic. I used
+// parameters in order to make it so that when the player interacted with one
+// sprite it would effect another. I didn't have time to get as far with
+// the game as I wanted, but it's a good starting point, and I'm looking forward
+// to working in it further, even after class is over.
+
 // Creates sprite variable
 let player, playButton;
 let demonEventWall, eyesEventWall;
